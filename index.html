@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VRChat Printf Photo Metadata</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1 data-i18n="appTitle">VRChat Printf Photo Metadata</h1>
+
+  <!-- Format 설정 -->
+  <div class="format-section">
+    <div class="format-group">
+      <label for="presetSelect" data-i18n="presetLabel">Preset:</label>
+      <select id="presetSelect"></select>
+    </div>
+    
+    <div class="format-group">
+      <div class="label-with-help">
+        <label for="formatInput" data-i18n="formatLabel">Format:</label>
+        <div class="help-tooltip">
+          <span class="help-icon">?</span>
+          <div class="help-content">
+            <strong data-i18n="helpTitle">지원하는 변수 목록</strong>
+            <ul>
+              <li><code>{worldName}</code>: <span data-i18n="helpWorldName">월드 이름 (예: 화본역)</span></li>
+              <li><code>{worldId}</code>: <span data-i18n="helpWorldId">월드 ID (예: wrld_123...)</span></li>
+              <li><code>{worldUrl}</code>: <span data-i18n="helpWorldUrl">월드 링크 (예: https://...)</span></li>
+              <li><code>{author}</code>: <span data-i18n="helpAuthor">촬영자 (예: nuyar)</span></li>
+              <li><code>{authorId}</code>: <span data-i18n="helpAuthorId">촬영자 ID (예: usr_123...)</span></li>
+              <li><code>{authorUrl}</code>: <span data-i18n="helpAuthorUrl">촬영자 링크 (예: https://...)</span></li>
+              <li><code>{YYYY}</code>, <code>{MM}</code>, <code>{DD}</code>, <code>{HH}</code>, <code>{mm}</code>, <code>{ss}</code>: <span data-i18n="helpDate">날짜/시간 (예: 2026-05-13 00:16)</span></li>
+              <li><code>{width}</code>, <code>{height}</code>: <span data-i18n="helpResolution">이미지 해상도</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <textarea id="formatInput" rows="3">{worldName}</textarea>
+    </div>
+
+    <div class="format-group">
+      <label data-i18n="previewLabel">Preview:</label>
+      <div id="formatPreview" class="preview-box"></div>
+    </div>
+  </div>
+
+  <!-- 드롭존 -->
+  <div class="dropzone" id="dropzone">
+    <span data-i18n="dropzoneText">이미지를 여기에 드래그앤드롭 (또는 클릭)</span>
+    <input type="file" id="fileInput" accept="image/png" multiple />
+  </div>
+
+  <!-- 결과 -->
+  <div class="result" id="result">
+    <div class="result-row">
+      <img class="result-thumb" id="resultThumb" src="" alt="" />
+      <div class="result-body">
+        <div class="result-text" id="resultText"></div>
+        <button class="btn-copy" id="resultCopy" data-i18n="copyBtn">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- History -->
+  <div class="history-section" id="historySection" style="display:none;">
+    <h2 data-i18n="historyTitle">History</h2>
+    <div class="history-list" id="historyList"></div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

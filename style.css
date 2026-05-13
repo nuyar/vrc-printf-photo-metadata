@@ -1,0 +1,196 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: sans-serif;
+  padding: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+h1 { font-size: 1.2rem; margin-bottom: 1rem; }
+
+/* ── Format 설정 ── */
+.format-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.format-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  width: 100%;
+}
+.format-group label {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #333;
+}
+.label-with-help {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.help-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #aaa;
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+  cursor: help;
+}
+.help-tooltip {
+  position: relative;
+  display: inline-block;
+}
+.help-content {
+  display: none;
+  position: absolute;
+  left: 24px;
+  top: -10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 1rem;
+  border-radius: 6px;
+  width: 320px;
+  z-index: 10;
+  font-size: 0.85rem;
+}
+.help-tooltip:hover .help-content {
+  display: block;
+}
+.help-content ul {
+  list-style: none;
+  margin-top: 0.5rem;
+}
+.help-content li {
+  margin-bottom: 0.4rem;
+  color: #555;
+}
+.help-content code {
+  background: #f4f4f4;
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+  font-family: monospace;
+  color: #c00;
+}
+.format-group select {
+  padding: 0.4rem 0.5rem;
+  font-size: 0.9rem;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.format-group textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 0.4rem 0.5rem;
+  font-size: 0.9rem;
+  font-family: monospace;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+/* ── Format Preview ── */
+.preview-box {
+  width: 100%;
+  min-height: 80px;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  background: #f9f9f9;
+  border: 1px dashed #ccc;
+  border-radius: 4px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: #555;
+}
+
+/* ── 드롭존 ── */
+.dropzone {
+  border: 2px dashed #ccc;
+  padding: 2rem;
+  text-align: center;
+  color: #999;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: border-color 0.15s, background 0.15s;
+}
+.dropzone.dragover {
+  border-color: #666;
+  background: #f0f0f0;
+}
+.dropzone input[type="file"] { display: none; }
+
+/* ── 결과 ── */
+.result {
+  display: none;
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+}
+.result-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+.result-thumb {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: #f0f0f0;
+}
+.result-body { flex: 1; min-width: 0; }
+.result-text {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+.result-error {
+  color: #c00;
+  font-size: 0.85rem;
+}
+.btn-copy {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+.btn-copy:hover { background: #f0f0f0; }
+.btn-copy.copied {
+  background: #e8f5e9;
+  border-color: #4caf50;
+}
+
+/* ── History ── */
+.history-section { margin-top: 0.5rem; }
+.history-section h2 {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+.history-list { display: flex; flex-direction: column; gap: 0.5rem; }
+.history-item {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  padding: 0.5rem;
+  border: 1px solid #eee;
+  font-size: 0.85rem;
+}
+.history-item .result-thumb {
+  width: 50px;
+  height: 50px;
+}
+.history-item .result-text {
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+}
