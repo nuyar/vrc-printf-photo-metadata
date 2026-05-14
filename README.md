@@ -21,3 +21,7 @@
 
 ## Feedback
 If you have any feature requests or suggestions, please open an [Issue](https://github.com/nuyar/vrc-printf-photo-metadata/issues/new).
+
+---
+
+*Developed with the assistance of Antigravity Gemini 3.1 Pro (High)*
