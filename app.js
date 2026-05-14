@@ -18,7 +18,7 @@ const PRESETS_DATA = [
 
 const dummyMeta = {
   worldName: '화본역',
-  worldId: 'wrld_ff8d5a44-b9a4-47bc-a8e8-ba8958c0dd41',
+  worldId: 'wrld_93d114b8-8993-4b70-a1e9-5e4e98258e83',
   author: 'nuyar',
   authorId: 'usr_1ff5e386-444c-4aaf-82ee-52f4152deb68',
   date: new Date().toISOString(),
