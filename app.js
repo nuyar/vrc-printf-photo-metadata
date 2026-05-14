@@ -2,18 +2,17 @@ import { parseVrcPhotoMetadata } from './lib/vrc-photo-metadata.js';
 
 // ── UI Texts & Presets (for future i18n) ──
 const UI_TEXT = {
-  copy: 'Copy',
-  copied: 'Copied',
-  customPreset: 'Custom',
-  errorPrefix: 'Error: '
+  copy: '복사',
+  copied: '복사됨',
+  customPreset: '직접 입력',
+  errorPrefix: '오류: '
 };
 
 const PRESETS_DATA = [
-  { label: '월드 이름만', value: '{worldName}' },
-  { label: '월드 + 날짜', value: '{worldName} ({YYYY}-{MM}-{DD})' },
-  { label: 'SNS용', value: '{worldName}\n{author}\n{YYYY}-{MM}-{DD} {HH}:{mm}' },
-  { label: '링크 포함', value: '{worldName}\n{worldUrl}' },
-  { label: '상세 정보', value: '{worldName}\n{author} / {YYYY}-{MM}-{DD} {HH}:{mm}\n{worldUrl}' },
+  { label: 'Emojis', value: '🌐 {worldName}\n📷 {author}\n\n#VRChat #VRChatPhotography' },
+  { label: '한글', value: '월드: {worldName}\n사진: {author}\n\n#VRChat #VRChatPhotography' },
+  { label: 'English', value: 'World: {worldName}\nPhoto: {author}\n\n#VRChat #VRChatPhotography' },
+  { label: 'Details', value: 'World: {worldName} {worldUrl}\nPhoto: {author} {authorUrl}\nDate: {YYYY}-{MM}-{DD}\n\n#VRChat #VRChatPhotography' },
 ];
 
 const dummyMeta = {
