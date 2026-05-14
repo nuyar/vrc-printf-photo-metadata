@@ -1,4 +1,5 @@
 import { parseVrcPhotoMetadata } from './lib/vrc-photo-metadata.js';
+import { fetchWorld } from './lib/vrc-fetch-info.js';
 
 // ── UI Texts & Presets (for future i18n) ──
 const UI_TEXT = {
@@ -9,10 +10,10 @@ const UI_TEXT = {
 };
 
 const PRESETS_DATA = [
-  { label: 'Emojis', value: '🌐 {worldName}\n📷 {author}\n\n#VRChat #VRChatPhotography' },
-  { label: '한글', value: '월드: {worldName}\n사진: {author}\n\n#VRChat #VRChatPhotography' },
-  { label: 'English', value: 'World: {worldName}\nPhoto: {author}\n\n#VRChat #VRChatPhotography' },
-  { label: 'Details', value: 'World: {worldName} {worldUrl}\nPhoto: {author} {authorUrl}\nDate: {YYYY}-{MM}-{DD}\n\n#VRChat #VRChatPhotography' },
+  { label: 'Emojis', value: '🌐 {worldName} by {worldAuthor}\n📷 {author}\n\n#VRChat #VRChatPhotography' },
+  { label: '한글', value: '월드: {worldName} by {worldAuthor}\n사진: {author}\n\n#VRChat #VRChatPhotography' },
+  { label: 'English', value: 'World: {worldName} by {worldAuthor}\nPhoto: {author}\n\n#VRChat #VRChatPhotography' },
+  { label: 'Details', value: 'World: {worldName} by {worldAuthor}\n{worldUrl}\nPhoto: {author}\n{authorUrl}\nDate: {YYYY}-{MM}-{DD}\n\n#VRChat #VRChatPhotography' },
 ];
 
 const dummyMeta = {
@@ -22,7 +23,9 @@ const dummyMeta = {
   authorId: 'usr_1ff5e386-444c-4aaf-82ee-52f4152deb68',
   date: new Date().toISOString(),
   width: 1920,
-  height: 1080
+  height: 1080,
+  worldAuthor: 'Bepsi Train',
+  worldAuthorId: 'usr_bea09c1a-3d65-4eba-b5e0-59883986da81',
 };
 
 // ── Elements ──
@@ -69,6 +72,9 @@ function applyFormat(fmt, meta) {
     worldName: meta.worldName || '',
     worldId: meta.worldId || '',
     worldUrl: meta.worldId ? `https://vrchat.com/home/world/${meta.worldId}` : '',
+    worldAuthor: meta.worldAuthor || '',
+    worldAuthorId: meta.worldAuthorId || '',
+    worldAuthorUrl: meta.worldAuthorId ? `https://vrchat.com/home/user/${meta.worldAuthorId}` : '',
     author: meta.author || '',
     authorId: meta.authorId || '',
     authorUrl: meta.authorId ? `https://vrchat.com/home/user/${meta.authorId}` : '',
@@ -208,6 +214,19 @@ async function processFile(file) {
     resultText.appendChild(errEl);
     resultCopy.style.display = 'none';
     return;
+  }
+
+  // 월드 추가 정보 페치
+  if (meta.worldId) {
+    try {
+      const worldData = await fetchWorld(meta.worldId);
+      if (worldData) {
+        meta.worldAuthor = worldData.authorName;
+        meta.worldAuthorId = worldData.authorId;
+      }
+    } catch (e) {
+      console.warn("Failed to fetch additional world info:", e);
+    }
   }
 
   const formatted = applyFormat(formatInput.value, meta);
