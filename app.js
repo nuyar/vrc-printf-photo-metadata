@@ -99,23 +99,29 @@ function updatePreview() {
 
 // ── URL 파라미터 ──
 
+function matchPreset(fmt) {
+  let matched = false;
+  for (const opt of presetSelect.options) {
+    if (opt.value === fmt) {
+      presetSelect.value = fmt;
+      matched = true;
+      break;
+    }
+  }
+  if (!matched) {
+    presetSelect.value = '__custom__';
+  }
+}
+
 function loadFormatFromUrl() {
   const params = new URLSearchParams(window.location.search);
   const fmt = params.get('fmt');
   if (fmt) {
     formatInput.value = fmt;
-    // preset 매칭
-    let matched = false;
-    for (const opt of presetSelect.options) {
-      if (opt.value === fmt) {
-        presetSelect.value = fmt;
-        matched = true;
-        break;
-      }
-    }
-    if (!matched) {
-      presetSelect.value = '__custom__';
-    }
+    matchPreset(fmt);
+  } else if (presetSelect.options.length > 0) {
+    presetSelect.selectedIndex = 0;
+    formatInput.value = presetSelect.value;
   }
 }
 
@@ -136,18 +142,7 @@ presetSelect.addEventListener('change', () => {
 });
 
 formatInput.addEventListener('input', () => {
-  // preset 매칭 체크
-  let matched = false;
-  for (const opt of presetSelect.options) {
-    if (opt.value === formatInput.value) {
-      presetSelect.value = formatInput.value;
-      matched = true;
-      break;
-    }
-  }
-  if (!matched) {
-    presetSelect.value = '__custom__';
-  }
+  matchPreset(formatInput.value);
   saveFormatToUrl(formatInput.value);
   reapplyFormat();
 });
