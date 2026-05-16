@@ -8,6 +8,9 @@
 - `{worldName}`
 - `{worldId}`
 - `{worldUrl}`
+- `{worldAuthor}`
+- `{worldAuthorId}`
+- `{worldAuthorUrl}`
 - `{author}`
 - `{authorId}`
 - `{authorUrl}`
@@ -15,9 +18,7 @@
 - `{width}`, `{height}`
 
 ### Planned / Future Additions
-- `{worldAuthor}`
-- `{worldAuthorId}`
-- `{worldAuthorUrl}`
+- *We welcome your suggestions for new variables or features!*
 
 ## Feedback
 If you have any feature requests or suggestions, please open an [Issue](https://github.com/nuyar/vrc-printf-photo-metadata/issues/new).

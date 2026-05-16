@@ -1,11 +1,20 @@
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: sans-serif;
   padding: 1rem;
   max-width: 800px;
   margin: 0 auto;
 }
-h1 { font-size: 1.2rem; margin-bottom: 1rem; }
+
+h1 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
 
 /* ── Format 설정 ── */
 .format-section {
@@ -14,22 +23,26 @@ h1 { font-size: 1.2rem; margin-bottom: 1rem; }
   gap: 1rem;
   margin-bottom: 1.5rem;
 }
+
 .format-group {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
   width: 100%;
 }
+
 .format-group label {
   font-size: 0.85rem;
   font-weight: bold;
   color: #333;
 }
+
 .label-with-help {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
+
 .help-icon {
   display: inline-flex;
   align-items: center;
@@ -43,10 +56,12 @@ h1 { font-size: 1.2rem; margin-bottom: 1rem; }
   font-weight: bold;
   cursor: help;
 }
+
 .help-tooltip {
   position: relative;
   display: inline-block;
 }
+
 .help-content {
   display: none;
   position: absolute;
@@ -54,24 +69,28 @@ h1 { font-size: 1.2rem; margin-bottom: 1rem; }
   top: -10px;
   background: #fff;
   border: 1px solid #ddd;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   padding: 1rem;
   border-radius: 6px;
-  width: 320px;
+  width: 600px;
   z-index: 10;
   font-size: 0.85rem;
 }
+
 .help-tooltip:hover .help-content {
   display: block;
 }
+
 .help-content ul {
   list-style: none;
   margin-top: 0.5rem;
 }
+
 .help-content li {
   margin-bottom: 0.4rem;
   color: #555;
 }
+
 .help-content code {
   background: #f4f4f4;
   padding: 0.1rem 0.3rem;
@@ -79,6 +98,7 @@ h1 { font-size: 1.2rem; margin-bottom: 1rem; }
   font-family: monospace;
   color: #c00;
 }
+
 .format-group select {
   padding: 0.4rem 0.5rem;
   font-size: 0.9rem;
@@ -86,6 +106,7 @@ h1 { font-size: 1.2rem; margin-bottom: 1rem; }
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
 .format-group textarea {
   width: 100%;
   min-height: 110px;
@@ -121,11 +142,15 @@ h1 { font-size: 1.2rem; margin-bottom: 1rem; }
   margin-bottom: 1rem;
   transition: border-color 0.15s, background 0.15s;
 }
+
 .dropzone.dragover {
   border-color: #666;
   background: #f0f0f0;
 }
-.dropzone input[type="file"] { display: none; }
+
+.dropzone input[type="file"] {
+  display: none;
+}
 
 /* ── 결과 ── */
 .result {
@@ -134,11 +159,13 @@ h1 { font-size: 1.2rem; margin-bottom: 1rem; }
   padding: 0.75rem;
   margin-bottom: 1rem;
 }
+
 .result-row {
   display: flex;
   gap: 0.75rem;
   align-items: flex-start;
 }
+
 .result-thumb {
   width: 80px;
   height: 80px;
@@ -146,17 +173,24 @@ h1 { font-size: 1.2rem; margin-bottom: 1rem; }
   flex-shrink: 0;
   background: #f0f0f0;
 }
-.result-body { flex: 1; min-width: 0; }
+
+.result-body {
+  flex: 1;
+  min-width: 0;
+}
+
 .result-text {
   white-space: pre-wrap;
   word-break: break-word;
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
 }
+
 .result-error {
   color: #c00;
   font-size: 0.85rem;
 }
+
 .btn-copy {
   padding: 0.25rem 0.75rem;
   font-size: 0.8rem;
@@ -164,20 +198,33 @@ h1 { font-size: 1.2rem; margin-bottom: 1rem; }
   border: 1px solid #ccc;
   background: #fff;
 }
-.btn-copy:hover { background: #f0f0f0; }
+
+.btn-copy:hover {
+  background: #f0f0f0;
+}
+
 .btn-copy.copied {
   background: #e8f5e9;
   border-color: #4caf50;
 }
 
 /* ── History ── */
-.history-section { margin-top: 0.5rem; }
+.history-section {
+  margin-top: 0.5rem;
+}
+
 .history-section h2 {
   font-size: 0.9rem;
   color: #666;
   margin-bottom: 0.5rem;
 }
-.history-list { display: flex; flex-direction: column; gap: 0.5rem; }
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .history-item {
   display: flex;
   gap: 0.5rem;
@@ -186,10 +233,12 @@ h1 { font-size: 1.2rem; margin-bottom: 1rem; }
   border: 1px solid #eee;
   font-size: 0.85rem;
 }
+
 .history-item .result-thumb {
   width: 50px;
   height: 50px;
 }
+
 .history-item .result-text {
   font-size: 0.8rem;
   margin-bottom: 0.25rem;
