@@ -314,16 +314,19 @@ fileInput.addEventListener('change', () => {
   }
 });
 
-dropzone.addEventListener('dragover', (e) => {
+window.addEventListener('dragover', (e) => {
   e.preventDefault();
   dropzone.classList.add('dragover');
 });
 
-dropzone.addEventListener('dragleave', () => {
-  dropzone.classList.remove('dragover');
+window.addEventListener('dragleave', (e) => {
+  e.preventDefault();
+  if (!e.relatedTarget || e.relatedTarget.nodeName === "HTML") {
+    dropzone.classList.remove('dragover');
+  }
 });
 
-dropzone.addEventListener('drop', (e) => {
+window.addEventListener('drop', (e) => {
   e.preventDefault();
   dropzone.classList.remove('dragover');
   if (e.dataTransfer.files.length) {
