@@ -191,12 +191,21 @@ h1 {
   font-size: 0.85rem;
 }
 
+.result-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
 .btn-copy {
-  padding: 0.25rem 0.75rem;
+  padding: 0.35rem 0.75rem;
   font-size: 0.8rem;
   cursor: pointer;
   border: 1px solid #ccc;
   background: #fff;
+  border-radius: 4px;
+  width: 100%;
 }
 
 .btn-copy:hover {
@@ -206,6 +215,24 @@ h1 {
 .btn-copy.copied {
   background: #e8f5e9;
   border-color: #4caf50;
+}
+
+.btn-twitter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid #ccc;
+  background: #000;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.btn-twitter:hover {
+  background: #333;
 }
 
 /* ── History ── */
